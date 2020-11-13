@@ -425,8 +425,7 @@ void CardReader::manage_media() {
 
     if (stat) {                       // Media Inserted
       safe_delay(500);                // Some boards need a delay to get settled
-      if (TERN1(SD_IGNORE_AT_STARTUP, old_stat != 2))
-        mount();                      // Try to mount the media
+      mount();                        // Try to mount the media
       #if MB(FYSETC_CHEETAH, FYSETC_CHEETAH_V12, FYSETC_AIO_II)
         reset_stepper_drivers();      // Workaround for Cheetah bug
       #endif
@@ -563,7 +562,8 @@ void CardReader::openFileRead(char * const path, const uint8_t subcall_type/*=0*
 
         // Store current filename (based on workDirParents) and position
         getAbsFilename(proc_filenames[file_subcall_ctr]);
-        filespos[file_subcall_ctr] = sdpos;
+
+        TERN_(HAS_MEDIA_SUBCALLS, filespos[file_subcall_ctr] = sdpos);
 
         // For sub-procedures say 'SUBROUTINE CALL target: "..." parent: "..." pos12345'
         SERIAL_ECHO_START();
