@@ -71,7 +71,7 @@
 // @section info
 
 // Author info of this build printed to the host during boot and M115
-#define STRING_CONFIG_H_AUTHOR "(Freddy Lauwers, CR-10S, SKR 1.4 Turbo, 09/2020)" // Who made the changes.
+#define STRING_CONFIG_H_AUTHOR "(Freddy Lauwers, CR-10S, SKR 1.4 Turbo, 05/2021)" // Who made the changes.
 //#define CUSTOM_VERSION_FILE Version.h // Path from the root directory (no quotes)
 
 /**
@@ -1938,7 +1938,7 @@
  * SD Card support is disabled by default. If your controller has an SD slot,
  * you must uncomment the following option or it won't work.
  */
-#define SDSUPPORT
+//#define SDSUPPORT
 
 /**
  * SD CARD: ENABLE CRC
