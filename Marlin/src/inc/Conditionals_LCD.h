@@ -624,6 +624,10 @@
   #define LOGICAL_AXES LINEAR_AXES
 #endif
 
+#if LINEAR_AXES >= XYZ
+  #define HAS_Z_AXIS 1
+#endif
+
 /**
  * DISTINCT_E_FACTORS is set to give extruders (some) individual settings.
  *
@@ -1320,4 +1324,11 @@
   #define COORDINATE_OKAY(N,L,H) WITHIN(N,L,H)
 #else
   #define COORDINATE_OKAY(N,L,H) true
+#endif
+
+/**
+ * LED Backlight INDEX END
+ */
+#if defined(NEOPIXEL_BKGD_INDEX_FIRST) && !defined(NEOPIXEL_BKGD_INDEX_LAST)
+  #define NEOPIXEL_BKGD_INDEX_LAST NEOPIXEL_BKGD_INDEX_FIRST
 #endif
